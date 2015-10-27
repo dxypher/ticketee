@@ -51,12 +51,12 @@ class TicketsController < ApplicationController
 
   private
 
-  def set_project
-    @project = Project.find(params[:project_id])
+  def ticket_params
+    params.require(:ticket).permit(:name, :description, :attachment)
   end
 
-  def ticket_params
-    params.require(:ticket).permit(:name, :description)
+  def set_project
+    @project = Project.find(params[:project_id])
   end
 
   def set_ticket
