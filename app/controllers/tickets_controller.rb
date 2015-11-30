@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     unless policy(@ticket).tag?
     whitelisted_params.delete(:tag_names)
     end
-    
+
     @ticket.attributes = whitelisted_params
     @ticket.author = current_user
     authorize @ticket, :create?
@@ -56,6 +56,16 @@ class TicketsController < ApplicationController
 
     flash[:notice] = "Ticket has been deleted."
     redirect_to @project
+  end
+
+  def search
+    authorize @project, :show?
+    if params[:search].present?
+      @tickets = @project.tickets.search(params[:search])
+    else
+      @tickets = @project.tickets
+    end
+    render 'projects/show'
   end
 
   private
