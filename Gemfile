@@ -43,6 +43,8 @@ gem "searcher", github: "radar/searcher"
 gem "fog", "~> 1.29.0"
 gem "rails_12factor", group: :production
 gem "puma", group: :production
+gem 'net-ssh'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
