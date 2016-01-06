@@ -2,5 +2,12 @@ language: ruby
 rvm: 2.1.3
 script: bundle exec rspec
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: neQM4+oRHSny84k3obgvRK0hQ0dU23EAhFGPUdGGHSXNywjuwnmyykjpjZbJpV/NS+3PXtE/jIpsbbYUuxKH0FWsXZwgVVNrU57wiq9wViIF7zFnQF3rD48leJ615Qe+o/fM9oGoX9X27R8D+HxmhhkB4ThZbR7up5bEwBHpd370w8JmWhRSH9YPDzp8bVztXPgs2OpgqU8XDs5LhS+W/UudKJ2vwohdcImgWYP52FoUt5yVJQC4b11l6hcQB6l8/KPM2uXjEAxGEpUW0C0aJ3tjPvg2WfN5a++wj1WMtTI+DCgQt2dTpWbU0JyNeXw0DZ+sRzu3YiwE2C12PiOHz3BDS1iHgM/pz/VFv0MnzdyMIwOHZKPc52Edwm9A6Yt5oVK2/BT/sjhHmmyHHtELaDtvyR4pQmD0O/sEEGe9YdIREvj+18fral6V3dTE7AQtTSme3A7hA6ejcQ1ktJ+I9cH9ylANitcttvY5PnP6GxSswJo7Td18zT68nA/f288S8ARtqt97XHJ2ciacxj8pewGkAV+boisBW/bity6APl/ZzZWiJuyWuvM2akpkdnlyMMhhykyi1sFMUuknP1tZrvoNU0FAH0MKuplsfNjINpsM5Jp6q24GMEOw0tpwozkNntIjRDCA/DMRESE7/hGZ7CGsTOoPxUNlKLrQY50dmiw=
+  app: still-sierra-5638
+  on:
+    repo: dxypher/ticketee
